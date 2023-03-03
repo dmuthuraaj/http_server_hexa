@@ -2,12 +2,12 @@ package main
 
 import (
 	"ex/internal/adapters/left/httpServer"
-	"ex/internal/app/handlers"
+	"ex/internal/app/routers"
 )
 
 func main() {
 	// Handler App Adapter
-	handlerApp := handlers.NewAdapter()
+	handlerApp := routers.NewAdapter()
 
 	// Framework Adapters
 	// Left httpServer

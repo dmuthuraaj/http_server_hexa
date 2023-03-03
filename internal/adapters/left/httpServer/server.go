@@ -8,11 +8,11 @@ import (
 )
 
 type ServerAdpater struct {
-	handler ports.HandlerAppPort
+	router ports.RouterApp
 }
 
-func NewAdapter(handlera ports.HandlerAppPort) *ServerAdpater {
-	return &ServerAdpater{handler: handlera}
+func NewAdapter(routera ports.RouterApp) *ServerAdpater {
+	return &ServerAdpater{router: routera}
 }
 
 func (server ServerAdpater) Run() {
@@ -25,7 +25,7 @@ func (server ServerAdpater) Run() {
 
 	s := &http.Server{
 		Addr:    httpServerPort,
-		Handler: server.handler.Handler(),
+		Handler: server.router.Handler(),
 	}
 
 	log.Printf("Starting server on port %v ...", httpServerPort)
